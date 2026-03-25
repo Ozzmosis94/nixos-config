@@ -10,10 +10,12 @@
     firefox
     curl
     pritunl-client
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.tiling-shell
-  ];
+  ] ++ (with pkgs.gnomeExtensions; [
+    dash-to-dock
+    blur-my-shell
+    tiling-shell
+    auto-move-windows
+  ]);
 
   # programs.nix-ld.enable = true;
 }
