@@ -1,6 +1,17 @@
-{ config, pkgs, username, stateVersion, ... }: {
+{
+  inputs,
+  pkgs,
+  username,
+  stateVersion,
+  ...
+}:
+{
   imports = [
     ./modules
+    #inputs.noctalia.homeModules.default
+    inputs.dms.homeModules.dank-material-shell
+    inputs.dms.homeModules.niri
+    #inputs.niri.homeModules.niri
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -14,8 +25,11 @@
       microfetch
       unzip
       zip
-
+      fastfetch
       nodejs
+
+      nautilus
+      alacritty
     ];
   };
 }
