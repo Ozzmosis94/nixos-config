@@ -10,18 +10,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell/stable";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # dms = {
+    #   url = "github:AvengeMedia/DankMaterialShell/stable";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # niri = {
+    #   url = "github:sodiboo/niri-flake";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
-    zapret-discord-youtube.url = "github:kartavkun/zapret-discord-youtube";
-
+    # zapret-discord-youtube.url = "github:kartavkun/zapret-discord-youtube";
   };
 
   outputs =
@@ -51,9 +50,9 @@
 
           home-manager.nixosModules.home-manager
 
-          inputs.dms.nixosModules.greeter
-          inputs.niri.nixosModules.niri
-          inputs.zapret-discord-youtube.nixosModules.default
+          # inputs.dms.nixosModules.greeter
+          # inputs.niri.nixosModules.niri
+          # inputs.zapret-discord-youtube.nixosModules.default
 
           {
             home-manager.useGlobalPkgs = true;

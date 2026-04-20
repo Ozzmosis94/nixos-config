@@ -14,16 +14,7 @@
         "docker"
       ];
       shell = pkgs.fish;
-      #packages = with pkgs; [];
-    };
-  };
-
-  systemd = {
-    packages = [ pkgs.pritunl-client ];
-    targets = {
-      multi-user = {
-        wants = [ "pritunl-client.service" ];
-      };
+      # packages = with pkgs; [];
     };
   };
 }

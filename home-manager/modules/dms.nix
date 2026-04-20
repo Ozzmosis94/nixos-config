@@ -1,16 +1,17 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+{
   programs.dank-material-shell = {
-    enable = true;
+    enable = false;
     # Core features
-    enableSystemMonitoring = true;     # System monitoring widgets (dgop)
-    enableVPN = true;                  # VPN management widget
-    enableDynamicTheming = true;       # Wallpaper-based theming (matugen)
-    enableAudioWavelength = true;      # Audio visualizer (cava)
-    enableCalendarEvents = true;       # Calendar integration (khal)
-    enableClipboardPaste = true;       # Pasting items from the clipboard (wtype)
+    enableSystemMonitoring = true; # System monitoring widgets (dgop)
+    enableVPN = true; # VPN management widget
+    enableDynamicTheming = true; # Wallpaper-based theming (matugen)
+    enableAudioWavelength = true; # Audio visualizer (cava)
+    enableCalendarEvents = true; # Calendar integration (khal)
+    enableClipboardPaste = true; # Pasting items from the clipboard (wtype)
     niri = {
       #enableKeybinds = true;   # Sets static preset keybinds
-      enableSpawn = true;      # Auto-start DMS with niri, if enabled
+      enableSpawn = true; # Auto-start DMS with niri, if enabled
     };
     settings = {
       acLockTimeout = 0;
@@ -23,7 +24,7 @@
 
       animationSpeed = 1;
 
-      appDrawerSectionViewModes = {};
+      appDrawerSectionViewModes = { };
 
       appIdSubstitutions = [
         {
@@ -64,8 +65,8 @@
       appsDockHideIndicators = false;
       appsDockIconSizePercentage = 100;
 
-      audioInputDevicePins = {};
-      audioOutputDevicePins = {};
+      audioInputDevicePins = { };
+      audioOutputDevicePins = { };
 
       audioScrollMode = "volume";
       audioVisualizerEnabled = true;
@@ -112,14 +113,39 @@
           ];
 
           rightWidgets = [
-            { id = "systemTray"; enabled = true; }
-            { id = "keyboard_layout_name"; enabled = true; keyboardLayoutNameCompactMode = true; }
-            { id = "clipboard"; enabled = true; }
-            { id = "cpuUsage"; enabled = true; }
-            { id = "memUsage"; enabled = true; }
-            { id = "notificationButton"; enabled = true; }
-            { id = "battery"; enabled = true; }
-            { id = "controlCenterButton"; enabled = true; }
+            {
+              id = "systemTray";
+              enabled = true;
+            }
+            {
+              id = "keyboard_layout_name";
+              enabled = true;
+              keyboardLayoutNameCompactMode = true;
+            }
+            {
+              id = "clipboard";
+              enabled = true;
+            }
+            {
+              id = "cpuUsage";
+              enabled = true;
+            }
+            {
+              id = "memUsage";
+              enabled = true;
+            }
+            {
+              id = "notificationButton";
+              enabled = true;
+            }
+            {
+              id = "battery";
+              enabled = true;
+            }
+            {
+              id = "controlCenterButton";
+              enabled = true;
+            }
           ];
 
           screenPreferences = [ "all" ];
@@ -140,8 +166,8 @@
 
       batteryChargeLimit = 100;
 
-      bluetoothDevicePins = {};
-      brightnessDevicePins = {};
+      bluetoothDevicePins = { };
+      brightnessDevicePins = { };
 
       browserPickerViewMode = "grid";
 
@@ -157,14 +183,46 @@
       controlCenterShowVpnIcon = true;
 
       controlCenterWidgets = [
-        { id = "volumeSlider"; enabled = true; width = 50; }
-        { id = "brightnessSlider"; enabled = true; width = 50; }
-        { id = "wifi"; enabled = true; width = 50; }
-        { id = "bluetooth"; enabled = true; width = 50; }
-        { id = "audioOutput"; enabled = true; width = 50; }
-        { id = "audioInput"; enabled = true; width = 50; }
-        { id = "nightMode"; enabled = true; width = 50; }
-        { id = "darkMode"; enabled = true; width = 50; }
+        {
+          id = "volumeSlider";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "brightnessSlider";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "wifi";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "bluetooth";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "audioOutput";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "audioInput";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "nightMode";
+          enabled = true;
+          width = 50;
+        }
+        {
+          id = "darkMode";
+          enabled = true;
+          width = 50;
+        }
       ];
 
       cornerRadius = 12;

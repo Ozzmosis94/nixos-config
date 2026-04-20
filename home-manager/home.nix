@@ -9,8 +9,8 @@
   imports = [
     ./modules
     #inputs.noctalia.homeModules.default
-    inputs.dms.homeModules.dank-material-shell
-    inputs.dms.homeModules.niri
+    # inputs.dms.homeModules.dank-material-shell
+    # inputs.dms.homeModules.niri
     #inputs.niri.homeModules.niri
   ];
 
@@ -28,8 +28,8 @@
       fastfetch
       nodejs
 
-      nautilus
-      alacritty
+      # nautilus
+      # alacritty
     ];
   };
 }

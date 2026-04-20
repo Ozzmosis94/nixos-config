@@ -9,10 +9,9 @@
     ./nix.nix
     ./packages.nix
     ./user.nix
-    ./bluetooth.nix
-    ./power.nix
-    ./zapret.nix
-    ./portal.nix
+    # ./zapret.nix
+    # ./portal.nix
     ./docker.nix
+    ./pritunl.nix
   ];
 }

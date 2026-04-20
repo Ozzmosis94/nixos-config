@@ -7,8 +7,8 @@
     ./nh.nix
     ./direnv.nix
     ./fonts.nix
-    ./dms.nix
-    ./noctalia
-    ./niri.nix
+    # ./dms.nix
+    # ./noctalia
+    # ./niri.nix
   ];
 }

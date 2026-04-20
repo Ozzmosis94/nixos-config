@@ -1,7 +1,7 @@
 { username, ... }:
 {
   services.xray = {
-    enable = false;
+    enable = true;
     settingsFile = "/home/${username}/nixos-config/configs/xray.json";
   };
 }
