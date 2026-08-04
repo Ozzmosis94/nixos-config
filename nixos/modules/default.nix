@@ -9,5 +9,7 @@
     ./nix.nix
     ./packages.nix
     ./user.nix
+    ./pritunl.nix
+    ./virtualization.nix
   ];
 }

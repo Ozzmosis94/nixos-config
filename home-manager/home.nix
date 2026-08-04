@@ -1,4 +1,11 @@
-{ config, pkgs, username, stateVersion, ... }: {
+{
+  config,
+  pkgs,
+  username,
+  stateVersion,
+  ...
+}:
+{
   imports = [
     ./modules
   ];
@@ -15,7 +22,12 @@
       unzip
       zip
 
+      libreoffice
+      hunspell
+      hunspellDicts.ru_RU
+
       nodejs
+      yarn
     ];
   };
 }
