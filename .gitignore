@@ -1,1 +1,4 @@
-configs
+configs/
+.direnv/
+result
+result-*

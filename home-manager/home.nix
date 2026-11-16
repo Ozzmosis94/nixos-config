@@ -1,33 +1,14 @@
+{ pkgs, username, stateVersion, ... }:
 {
-  config,
-  pkgs,
-  username,
-  stateVersion,
-  ...
-}:
-{
-  imports = [
-    ./modules
-  ];
-
-  nixpkgs.config.allowUnfree = true;
+  imports = [ ./modules ];
 
   home = {
-    username = username;
+    inherit username stateVersion;
     homeDirectory = "/home/${username}";
-    stateVersion = stateVersion;
     packages = with pkgs; [
-      telegram-desktop
       microfetch
       unzip
       zip
-
-      libreoffice
-      hunspell
-      hunspellDicts.ru_RU
-
-      nodejs
-      yarn
     ];
   };
 }
