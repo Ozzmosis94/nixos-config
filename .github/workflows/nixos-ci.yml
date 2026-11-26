@@ -1,0 +1,44 @@
+name: NixOS CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+      - name: Resolve missing inputs
+        run: nix flake lock
+      - name: Check flake
+        run: nix flake check --no-build --show-trace
+      - name: Evaluate both systems
+        run: |
+          for host in nixos nixos-btrfs; do
+            nix eval --raw ".#nixosConfigurations.$host.config.system.build.toplevel.drvPath"
+          done
+      - name: Build both systems
+        run: |
+          nix build .#nixosConfigurations.nixos.config.system.build.toplevel --no-link
+          nix build .#nixosConfigurations.nixos-btrfs.config.system.build.toplevel --no-link
+      - name: Build Disko installation scripts
+        run: nix build .#nixosConfigurations.nixos-btrfs.config.system.build.diskoScript --no-link
+  install-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+      - name: Resolve missing inputs
+        run: nix flake lock
+      - name: Enable KVM
+        run: |
+          test -c /dev/kvm
+          sudo chmod a+rw /dev/kvm
+      - name: Test installation in isolated VM
+        run: nix build .#nixosConfigurations.nixos-btrfs.config.system.build.installTest --no-link --print-build-logs
