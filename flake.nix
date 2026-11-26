@@ -49,10 +49,9 @@
       };
     in {
       nixosConfigurations = {
-        ${common.hostname} = mkHost [ ./nixos/hardware-configuration.nix ];
-        nixos-btrfs = mkHost [
+        ${common.hostname} = mkHost [
           inputs.disko.nixosModules.disko
-          ./hosts/nixos-btrfs
+          ./hosts/nixos
         ];
       };
     };

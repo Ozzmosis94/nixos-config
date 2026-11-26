@@ -17,17 +17,12 @@ jobs:
         run: nix flake lock
       - name: Check flake
         run: nix flake check --no-build --show-trace
-      - name: Evaluate both systems
-        run: |
-          for host in nixos nixos-btrfs; do
-            nix eval --raw ".#nixosConfigurations.$host.config.system.build.toplevel.drvPath"
-          done
-      - name: Build both systems
-        run: |
-          nix build .#nixosConfigurations.nixos.config.system.build.toplevel --no-link
-          nix build .#nixosConfigurations.nixos-btrfs.config.system.build.toplevel --no-link
+      - name: Evaluate system
+        run: nix eval --raw .#nixosConfigurations.nixos.config.system.build.toplevel.drvPath
+      - name: Build system
+        run: nix build .#nixosConfigurations.nixos.config.system.build.toplevel --no-link
       - name: Build Disko installation scripts
-        run: nix build .#nixosConfigurations.nixos-btrfs.config.system.build.diskoScript --no-link
+        run: nix build .#nixosConfigurations.nixos.config.system.build.diskoScript --no-link
   install-test:
     runs-on: ubuntu-latest
     timeout-minutes: 120
@@ -41,4 +36,4 @@ jobs:
           test -c /dev/kvm
           sudo chmod a+rw /dev/kvm
       - name: Test installation in isolated VM
-        run: nix build .#nixosConfigurations.nixos-btrfs.config.system.build.installTest --no-link --print-build-logs
+        run: nix build .#nixosConfigurations.nixos.config.system.build.installTest --no-link --print-build-logs
