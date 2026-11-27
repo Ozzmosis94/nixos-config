@@ -30,6 +30,7 @@
       at-spi2-core
       cups
       libdrm
+      libgbm
       mesa
       expat
       libxkbcommon
