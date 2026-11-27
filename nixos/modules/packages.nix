@@ -14,6 +14,7 @@
     element-desktop
     docker-compose
     zed-editor
+    codex
   ];
 
   # Support npm-distributed Electron and other prebuilt Linux binaries.
