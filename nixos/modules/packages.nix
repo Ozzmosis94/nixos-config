@@ -16,5 +16,34 @@
     zed-editor
   ];
 
-  # programs.nix-ld.enable = true;
+  # Support npm-distributed Electron and other prebuilt Linux binaries.
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+      glib
+      gtk3
+      nss
+      nspr
+      dbus
+      atk
+      at-spi2-core
+      cups
+      libdrm
+      mesa
+      expat
+      libxkbcommon
+      alsa-lib
+      pango
+      cairo
+      libGL
+      libx11
+      libxcomposite
+      libxdamage
+      libxext
+      libxfixes
+      libxrandr
+      libxcb
+    ];
+  };
 }
