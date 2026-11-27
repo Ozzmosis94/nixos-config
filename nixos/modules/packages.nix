@@ -13,7 +13,7 @@
     lm_sensors
     element-desktop
     docker-compose
-    zed-editor-fhs
+    zed-editor
   ];
 
   # programs.nix-ld.enable = true;
