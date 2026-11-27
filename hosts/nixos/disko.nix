@@ -6,7 +6,7 @@ in {
   disko.devices.disk.main = {
     type = "disk";
     # Replace with the actual whole-disk by-id path before installation.
-    device = lib.mkDefault "/dev/disk/by-id/REPLACE-ME";
+    device = lib.mkDefault "/dev/disk/by-id/nvme-KINGSTON_SNV2S1000G_50026B7383446B24_1";
     content = {
       type = "gpt";
       partitions = {
@@ -17,6 +17,7 @@ in {
           content = {
             type = "filesystem";
             format = "vfat";
+            extraArgs = [ "-F" "32" "-n" "BOOT" ];
             mountpoint = "/boot";
             mountOptions = [ "umask=0077" ];
           };
