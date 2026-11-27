@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   username,
   stateVersion,
   ...
@@ -27,7 +28,8 @@
       hunspellDicts.ru_RU
 
       nodejs
-      corepack
+      # Prefer standalone Corepack and its package-manager shims over Node's bundled Corepack.
+      (lib.hiPrio corepack)
     ];
   };
 }
