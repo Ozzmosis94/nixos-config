@@ -27,7 +27,7 @@
       hunspellDicts.ru_RU
 
       nodejs
-      yarn
+      corepack
     ];
   };
 }
