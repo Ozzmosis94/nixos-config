@@ -36,16 +36,9 @@
       };
       mkHost = hostModules: nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = common;
+        specialArgs = common // { inherit inputs; };
         modules = [
           ./nixos/configuration.nix
-          {
-            nixpkgs.overlays = [
-              (final: prev: {
-                codex = inputs.llm-agents.packages.${system}.codex;
-              })
-            ];
-          }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = false;
