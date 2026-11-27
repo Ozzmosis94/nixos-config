@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    llm-agents.url = "github:numtide/llm-agents.nix";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -38,6 +39,13 @@
         specialArgs = common;
         modules = [
           ./nixos/configuration.nix
+          {
+            nixpkgs.overlays = [
+              (final: prev: {
+                codex = inputs.llm-agents.packages.${system}.codex;
+              })
+            ];
+          }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = false;
