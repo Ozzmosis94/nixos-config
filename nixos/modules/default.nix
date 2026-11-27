@@ -1,6 +1,5 @@
 {
   imports = [
-    ./xray.nix
     ./audio.nix
     ./bootloader.nix
     ./desktop.nix
@@ -9,7 +8,6 @@
     ./nix.nix
     ./packages.nix
     ./user.nix
-    ./pritunl.nix
     ./virtualization.nix
   ];
 }
